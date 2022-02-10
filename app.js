@@ -23,12 +23,16 @@ requestApi(api)
 function getData(datas) {
     box.classList.add('hidden')
     const allCountry = datas
+    for (i = 1; i <= allCountry.length; i++) {
+        console.log(allCountry[i], i);
+    }
     allCountry.forEach(data => {
         const { name, flags, capital, population, region } = data
+
         let span = document.createElement('span')
         span.setAttribute('id', `${name.common}`);
         span.setAttribute('data-set', `${region}`);
-
+        console.log(data)
         span.classList.add('span');
         span.innerHTML = `
         <img src= ${flags.png} alt="country flag">

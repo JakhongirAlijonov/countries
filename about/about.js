@@ -16,6 +16,7 @@ let darkMode = document.querySelector('.toggleBtn')
 let img = document.querySelector('.img-section')
 let box = document.querySelector('.box')
 let texts = document.querySelector('.texts')
+
 const api = `https://restcountries.com/v3.1/name/${country}`
 async function requestApi(url) {
     try {
@@ -41,8 +42,13 @@ function getData(datas) {
     allCountry.forEach(data => {
         console.log(data);
         const { name, flags, capital, status, currencies, area, languages, tld, subregion, population, region } = data
-        const noBorder = ['No borders']
 
+        let headIcon = document.createElement('link')
+        headIcon.setAttribute('rel', 'shortcut icon')
+        headIcon.setAttribute('href', `${flags.png}`)
+        let title = document.getElementById('title')
+        title.innerHTML = `${name.common}`
+        document.head.appendChild(headIcon)
         const objKey = Object.keys(languages)
         const cur = Object.keys(currencies)
         img.innerHTML = `
