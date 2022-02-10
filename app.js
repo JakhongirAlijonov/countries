@@ -63,13 +63,13 @@ function getData(datas) {
 
     select.addEventListener('change', e => {
         const region = select.value
-        console.log(region);
+
         for (i = 1; i < grid.childNodes.length; i++) {
             const country = grid.childNodes[i].getAttribute('data-set')
 
-            if (country.includes(region)) {
+            if (country.includes(region) || select.value == '0') {
                 grid.childNodes[i].classList.remove('hidden1')
-                console.log(1);
+
             } else {
                 grid.childNodes[i].classList.add('hidden1')
             }
